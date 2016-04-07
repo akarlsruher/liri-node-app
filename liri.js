@@ -7,6 +7,7 @@ var keys = require("./keys.js");
 var request = require('request');
 var Twitter = require('twitter');
 var colors = require('colors');
+var spotify = require('spotify');
 
 
 if(process.argv[2]=="movie-this"){
@@ -48,4 +49,21 @@ else if(process.argv[2]=="my-tweets"){
 			  }
 			});
 
-};
+}
+else if(process.argv[2]=="spotify-this-song"){
+
+		var song = process.argv[3];
+ 
+		spotify.search({ type: 'track', query: song }, function(err, data) {
+		    if ( err ) {
+		        console.log('Error occurred: ' + err);
+		        return;
+		    }
+		 	
+		 	console.log(data);
+		    console.log("Album: ".red + data.tracks.items[0].album.name);
+		    console.log("Artist: ".red + data.tracks.items[0].artists[0].name);
+		    console.log("Song: ".red + data.tracks.items[0].name);
+		    console.log("Preview Link: ".red + data.tracks.items[0].preview_url);
+		});
+}
