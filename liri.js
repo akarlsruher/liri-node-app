@@ -7,6 +7,7 @@ var spotify = require('spotify');
 var fs = require('fs');
 
 
+
 if(process.argv[2]=="movie-this"){
 
 // var title = process.argv[3];
@@ -86,7 +87,9 @@ else{
 
 	   		var query = data.toString();
 
-	   		console.log(query);
+	   		
+
+
 
 	   		
 	});
