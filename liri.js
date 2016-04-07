@@ -1,29 +1,33 @@
 var keys = require("./keys.js"); 
 
-//console.log(keys); 
-
-
-
 var request = require('request');
 var Twitter = require('twitter');
 var colors = require('colors');
 var spotify = require('spotify');
+var fs = require('fs');
 
 
 if(process.argv[2]=="movie-this"){
 
-var title = process.argv[3];
+// var title = process.argv[3];
+
+		if(process.argv[3] === undefined){
+			var title = "Mr. Nobody";
+		}
+		else{
+			var title = process.argv[3];
+		} 
 
 	request('http://www.omdbapi.com/?t=' +title+ '&y=&plot=short&r=json', function (error, response, body) {
 	 if (!error && response.statusCode == 200) {
 	   var json = JSON.parse(body);
-	   console.log("Title: " +json.Title);
-	   console.log("Year: " +json.Year); 
-	   console.log("IMDB Rating: " +json.imdbRating); 
-	   console.log("Country: " +json.Country); 
-	   console.log("Language: " +json.Language); 
-	   console.log("Plot: " +json.Plot);
-	   console.log("Actors: " +json.Actors);  
+	   console.log("Title: ".red +json.Title);
+	   console.log("Year: ".red +json.Year); 
+	   console.log("IMDB Rating: ".red +json.imdbRating); 
+	   console.log("Country: ".red +json.Country); 
+	   console.log("Language: ".red +json.Language); 
+	   console.log("Plot: ".red +json.Plot);
+	   console.log("Actors: ".red +json.Actors);  
 	 }
 	});
 
@@ -52,7 +56,14 @@ else if(process.argv[2]=="my-tweets"){
 }
 else if(process.argv[2]=="spotify-this-song"){
 
-		var song = process.argv[3];
+		// var song = process.argv[3];
+
+		if(process.argv[3] === undefined){
+			var song = "What's my age again?";
+		}
+		else{
+			var song = process.argv[3];
+		} 
  
 		spotify.search({ type: 'track', query: song }, function(err, data) {
 		    if ( err ) {
@@ -65,4 +76,15 @@ else if(process.argv[2]=="spotify-this-song"){
 		    console.log("Song: ".red + data.tracks.items[0].name);
 		    console.log("Preview Link: ".red + data.tracks.items[0].preview_url);
 		});
+}
+else{
+
+		fs.readFile('random.txt', function (err, data) {
+	   		if (err) {
+	       return console.error(err);
+	   		}
+
+	   		console.log("Asynchronous read: " + data.toString());
+	   		process.argv[2]
+	});
 }
