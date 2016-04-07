@@ -80,6 +80,8 @@ else{
 	       return console.error(err);
 	   		}
 
-	   		var query = data.toString();	
+	   		var query = data.toString();
+
+	   		console.log(query);	
 	});
 }

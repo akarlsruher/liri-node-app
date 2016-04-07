@@ -1,0 +1,27 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "use these to run",
+  "main": "liri.js",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "fs": "0.0.2",
+    "request": "^2.70.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akarlsruher/liri-node-app.git"
+  },
+  "author": "aaron k",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akarlsruher/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/akarlsruher/liri-node-app#readme"
+}
