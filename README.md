@@ -1,2 +1,2 @@
 # liri-node-app
-liri node command project
+node js hw
