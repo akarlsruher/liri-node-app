@@ -84,7 +84,10 @@ else{
 	       return console.error(err);
 	   		}
 
-	   		console.log("Asynchronous read: " + data.toString());
-	   		process.argv[2]
+	   		var query = data.toString();
+
+	   		console.log(query);
+
+	   		
 	});
 }
