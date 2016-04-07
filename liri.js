@@ -43,8 +43,8 @@ else if(process.argv[2]=="my-tweets"){
 			client.get('statuses/user_timeline', params, function(error, tweets, response){
 			  if (!error) {
 			    for(i=1;i<tweets.length;i++){
-			    	console.log("TWEET #".red +[i] + ":".red + tweets[i].created_at.red)
-			    	console.log(tweets[i].text.blue);
+			    	console.log("At ".red + tweets[i].created_at.red)
+			    	console.log("Aaron Tweeted: " + tweets[i].text.blue);
 			    }
 			  }
 			});
@@ -60,7 +60,6 @@ else if(process.argv[2]=="spotify-this-song"){
 		        return;
 		    }
 		 	
-		 	console.log(data);
 		    console.log("Album: ".red + data.tracks.items[0].album.name);
 		    console.log("Artist: ".red + data.tracks.items[0].artists[0].name);
 		    console.log("Song: ".red + data.tracks.items[0].name);
